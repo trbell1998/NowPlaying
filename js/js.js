@@ -6,7 +6,8 @@ jQuery(document).ready(function() {
 	pause = $('#pause');
 	mute = $('#mute');
 	muted = $('#muted');
-	close = $('#close');
+	skip = $('#skip');
+    back = $('#back');
 	song = new Audio('music/track1.ogg','music/track1.mp3');
 	duration = song.duration;
 
