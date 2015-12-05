@@ -2,27 +2,28 @@
 
 @font-face {
     font-family: sf;
-    src: url(/css/sf.ttf);
+    src: url(../css/sf.ttf);
 }
 
 @font-face {
     font-family: sfBold;
-    src: url(/css/sfBold.ttf);
+    src: url(../css/sfBold.ttf);
 }
 
 @font-face {
     font-family: sfThin;
-    src: url(/css/sfThin.ttf);
+    src: url(../css/sfThin.ttf);
 }
 
 @font-face {
     font-family: sfUltraThin;
-    src: url(/css/sfUltraThin.ttf);
+    src: url(../css/sfUltraThin.ttf);
 }
 
 html {
 	background-image: url(../images/bg.jpg);
     background-size: cover;
+    background-attachment: fixed;
 }
 
 h1 {
@@ -60,6 +61,22 @@ h3 {
     position: absolute;
 }
 
+h4 {
+    font-family: 'sfUltraThin', sans-serif;
+    color: azure;
+    padding: 20px;
+    font-size: 40px;
+}
+
+h5 {
+    padding-top: 5px;
+    font-family: 'sf', sans-serif;
+}
+
+h6 {
+    font-family: 'sfBold', sans-serif;
+}
+
 p {
 	font-family: 'sf', sans-serif;
 	font-size: 20px;
@@ -82,6 +99,7 @@ p {
 	width: 70%;
     top: 25%;
     left: 19%;
+    position: fixed;
 
 }
 
@@ -174,7 +192,6 @@ input[type="range"] {
 	border: 1px solid black;
 	background-color: #242323;
 	top: -97px;
-	display: none;
 }
 input{
 	display:none\9!important;
@@ -203,4 +220,31 @@ input::-webkit-slider-thumb {
 	-webkit-border-radius: 1px;
 	border-radius: 5px;
 	background: #7f8c8d;
+}
+
+.music {
+    text-align: center;
+    position: absolute;
+    top: 83%;
+    width: 100%;
+    background-color: rgba(255,255,255, 0.5);
+}
+
+.smallCovers {
+    border-radius:5px;
+    box-shadow: 0px 0px 10px #888888;
+    opacity: 0.8;
+    width: 200px;
+}
+
+.smallCoverContainer {
+    left: 10%;
+    display: inline-block;
+    margin: 5%;
+    left: 10%;
+    height: 300px;
+}
+
+.down {
+    width: 64px;
 }
