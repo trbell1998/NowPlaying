@@ -1,2 +1,3 @@
-# HTMLPlayer
-HTML 5 Audio Player :)
+# #NowPlaying
+
+A HTML5/jQuery Music Player...
