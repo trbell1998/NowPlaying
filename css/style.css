@@ -26,6 +26,13 @@ html {
     background-attachment: fixed;
 }
 
+
+html, html a {
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+    overflow-y: hidden;
+}
+
 .jp-title {
 	font-family: 'sfUltraThin', sans-serif;
 	font-size: 50px;
