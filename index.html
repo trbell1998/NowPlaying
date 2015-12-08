@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <head>
-<title>HTML Player.</title>
+<title>#NowPlaying</title>
 
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <script type="text/javascript" src="plugins/jquery.min.js"></script>
 <script type="text/javascript" src="plugins/jquery.jplayer.min.js"></script>
 
@@ -78,7 +77,6 @@ $(document).ready(function(){
 //]]>
 </script>
 
-
 </head>
 
 <body>
@@ -98,15 +96,18 @@ $(document).ready(function(){
             <div class="jp-current-time">0:00</div>
             <a id="play" href="music/track1.mp3" class="track track-default"></a>
             
-		</div><!-- / player -->
-		
-	</div><!-- / Container-->
+		</div>
+	</div>
+    
         <div id="downContainer">
         <img class="down" src="images/down.png">
         </div>
     <div class="music" class="jp_container">
         <h4>Your Collection</h4>
         <div class="smallCoverContainer"><img class="smallCovers" src="images/cover.jpg"><h5>Love, Sax & Flashbacks</h5><br><h6>Fleur East</h6></div>
+        <div id="signature">
+        <p>Made with <3 By Tom Bell</p>
+    </div>
         </div>
 </body>
 </html>
