@@ -2,39 +2,110 @@
 <head>
 <title>HTML Player.</title>
 
-<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
-<script type="text/javascript" src="js/js.js"></script>
-<script type="text/javascript" src="js/html5slider.js"></script>
 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script type="text/javascript" src="plugins/jquery.min.js"></script>
+<script type="text/javascript" src="plugins/jquery.jplayer.min.js"></script>
+
+<script type="text/javascript">
+//<![CDATA[
+
+$(document).ready(function(){
+
+	// Local copy of jQuery selectors, for performance.
+	var	my_jPlayer = $("#jquery_jplayer"),
+		my_trackName = $("#jp_container .track-name"),
+		my_playState = $("#jp_container .play-state"),
+		my_extraPlayInfo = $("#jp_container .extra-play-info");
+
+	// Some options
+	var	opt_play_first = false, // If true, will attempt to auto-play the default track on page loads. No effect on mobile devices, like iOS.
+		opt_auto_play = true, // If true, when a track is selected, it will auto-play.
+		opt_text_playing = "Now playing", // Text when playing
+		opt_text_selected = "Track selected"; // Text when not playing
+
+	// A flag to capture the first track
+	var first_track = true;
+
+	// Change the time format
+	$.jPlayer.timeFormat.padMin = false;
+	$.jPlayer.timeFormat.padSec = false;
+	$.jPlayer.timeFormat.sepMin = " min ";
+	$.jPlayer.timeFormat.sepSec = " sec";
+
+	// Initialize the play state text
+	my_playState.text(opt_text_selected);
+
+	// Instance jPlayer
+	my_jPlayer.jPlayer({
+		ready: function () {
+			$("#jp_container .track-default").click();
+		},
+		timeupdate: function(event) {
+			my_extraPlayInfo.text(parseInt(event.jPlayer.status.currentPercentAbsolute, 10) + "%");
+		},
+		play: function(event) {
+			my_playState.text(opt_text_playing);
+		},
+		pause: function(event) {
+			my_playState.text(opt_text_selected);
+		},
+		ended: function(event) {
+			my_playState.text(opt_text_selected);
+		},
+		swfPath: "/plugins",
+		cssSelectorAncestor: "#jp_container",
+		supplied: "mp3",
+		wmode: "window"
+	});
+
+	// Create click handlers for the different tracks
+	$("#jp_container .track").click(function(e) {
+		my_trackName.text($(this).text());
+		my_jPlayer.jPlayer("setMedia", {
+			mp3: $(this).attr("href")
+		});
+		if((opt_play_first && first_track) || (opt_auto_play && !first_track)) {
+			my_jPlayer.jPlayer("play");
+		}
+		first_track = false;
+		$(this).blur();
+		return false;
+	});
+
+});
+//]]>
+</script>
 
 
 </head>
 
 <body>
-	<div class="container">
+    
+    <div id="jquery_jplayer"></div>
+    
+	<div id="jp_container" class="container">
 		
 		<img class="cover" src="images/cover.jpg" alt="">
 
 		<div class="player">
             
-            <input type="range" id="seek" value="0" max=""/>
-            <h2>More & More</h2>
-            <h3>Fleur East</h3>
-            <p>Love, Sax and Flashbacks</p>
-            <a class="button" id="play" href="" title=""></a>
-			<a class="button" id="mute" href="" title=""></a>
-            <a class="button" id="skip" href="" title=""></a>
-            <a class="button" id="back" href="" title=""></a>
+            <div class="jp-progress"><div class="jp-seek-bar" style="width: 100%; height: 7px;"><div class="jp-play-bar" style="width: 0%;"></div>
+					</div></div>
+            <span class="jp-title">More & More</span>
+            <span class="jp-artist">Fleur East</span>
+            <div class="jp-current-time">0:00</div>
+            <a id="play" href="music/track1.mp3" class="track track-default"></a>
             
 		</div><!-- / player -->
 		
 	</div><!-- / Container-->
-        
-    <div class="music">
+        <div id="downContainer">
+        <img class="down" src="images/down.png">
+        </div>
+    <div class="music" class="jp_container">
         <h4>Your Collection</h4>
-        <img class="down" src="images/down.png"><br>
         <div class="smallCoverContainer"><img class="smallCovers" src="images/cover.jpg"><h5>Love, Sax & Flashbacks</h5><br><h6>Fleur East</h6></div>
         </div>
 </body>
