@@ -29,11 +29,28 @@ html {
 
 }
 
+@media only screen and (max-width: 1026px) {
+    #particles-js {
+        display: none;
+    }
+}
+
 .info {
 	z-index: 9999;
 	height: 99%;
 	width: 99%;
 	position: fixed;
+}
+
+#credit {
+	font-family: sfThin;
+	z-index: 9999;
+	position: absolute;
+	color: azure;
+	bottom: 10px;
+	width: 100%;
+	text-align: center;
+	font-size: 15px;
 }
 
 .t-a {

@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>NowPlaying</title>
+		<title>#NowPlaying</title>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/mediaelement-and-player.min.js"></script>
 		<link rel="stylesheet" href="css/style.css" media="screen">
@@ -21,6 +21,10 @@
 		
 		<div class="audio-player">
 			<audio id="audio-player" src="media/demo.mp3" type="audio/mp3" controls="controls" autoplay></audio>
+		</div>
+		
+		<div id="credit">
+			<p>Developed By Tom Bell & Charlie Maskell. Particles By Vincent Garreau.</p>
 		</div>
 
 		<script>
